@@ -580,7 +580,7 @@ async function handleMultipleCustomSearch(searchQuery, customApiUrls) {
     window.fetch = async function(input, init) {
         const requestUrl = typeof input === 'string' ? new URL(input, window.location.origin) : input.url;
         
-        if (requestUrl.pathname.startsWith('/api/')&& !requestUrl.pathname.startsWith('/api/tls')) {
+        if (requestUrl.pathname.startsWith('/api/')&& requestUrl.host !== 'tls.123408.xyz') {
             if (window.isPasswordProtected && window.isPasswordVerified) {
                 if (window.isPasswordProtected() && !window.isPasswordVerified()) {
                     return;
